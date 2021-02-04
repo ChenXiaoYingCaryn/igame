@@ -11,6 +11,7 @@
         <module>igame-utils</module>
         <module>igame-eureka-7001</module>
         <module>igame-eureka-7002</module>
+        <module>igame-consumer-80</module>
     </modules>
 
     <packaging>pom</packaging>
