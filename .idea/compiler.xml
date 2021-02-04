@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="igame-utils" />
+        <module name="igame-eureka-7001" />
+        <module name="igame-login-8001" />
+        <module name="igame-eureka-7002" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="igame" target="1.5" />
+      <module name="igame-eureka-7001" target="1.5" />
+      <module name="igame-eureka-7002" target="1.5" />
+      <module name="igame-login-8001" target="11" />
+      <module name="igame-utils" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
