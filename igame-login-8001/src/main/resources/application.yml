@@ -1,0 +1,11 @@
+server:
+  port: 8001
+
+
+#Eureka的配置，服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+  instance:
+    instance-id: igame-login-8001  #修改eureka上的默认描述信息！
