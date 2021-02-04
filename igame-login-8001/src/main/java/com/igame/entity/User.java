@@ -6,4 +6,6 @@ package com.igame.entity;
  */
 public class User {
     private String user_id = "";
+    private String user_pwd = "";
+    private String user_name = "";
 }
