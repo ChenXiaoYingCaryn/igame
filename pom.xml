@@ -15,6 +15,7 @@
         <module>igame-login-8001</module>
         <module>igame-dynamic-8002</module>
         <module>igame-fileManagement-8003</module>
+        <module>igame-api</module>
     </modules>
 
     <packaging>pom</packaging>
