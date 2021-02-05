@@ -3,8 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/igame.iml" filepath="$PROJECT_DIR$/.idea/igame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/igame-api/igame-api.iml" filepath="$PROJECT_DIR$/igame-api/igame-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/igame-consumer-80/igame-consumer-80.iml" filepath="$PROJECT_DIR$/igame-consumer-80/igame-consumer-80.iml" />
+      <module fileurl="file://$PROJECT_DIR$/igame-dynamic-8002/igame-dynamic-8002.iml" filepath="$PROJECT_DIR$/igame-dynamic-8002/igame-dynamic-8002.iml" />
       <module fileurl="file://$PROJECT_DIR$/igame-eureka-7001/igame-eureka-7001.iml" filepath="$PROJECT_DIR$/igame-eureka-7001/igame-eureka-7001.iml" />
       <module fileurl="file://$PROJECT_DIR$/igame-eureka-7002/igame-eureka-7002.iml" filepath="$PROJECT_DIR$/igame-eureka-7002/igame-eureka-7002.iml" />
+      <module fileurl="file://$PROJECT_DIR$/igame-fileManagement-8003/igame-fileManagement.iml" filepath="$PROJECT_DIR$/igame-fileManagement-8003/igame-fileManagement.iml" />
       <module fileurl="file://$PROJECT_DIR$/igame-login-8001/igame-login-8001.iml" filepath="$PROJECT_DIR$/igame-login-8001/igame-login-8001.iml" />
       <module fileurl="file://$PROJECT_DIR$/igame-utils/igame-utils.iml" filepath="$PROJECT_DIR$/igame-utils/igame-utils.iml" />
     </modules>

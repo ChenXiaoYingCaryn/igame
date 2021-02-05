@@ -16,6 +16,15 @@ public class User {
     private int is_deleted = 0;
     private Date create_time;
 
+    public User(String user_id, String user_pwd, String user_name, String user_sex, String user_email, String user_image) {
+        this.user_id = user_id;
+        this.user_pwd = user_pwd;
+        this.user_name = user_name;
+        this.user_sex = user_sex;
+        this.user_email = user_email;
+        this.user_image = user_image;
+    }
+
     public String getUser_id() {
         return user_id;
     }
