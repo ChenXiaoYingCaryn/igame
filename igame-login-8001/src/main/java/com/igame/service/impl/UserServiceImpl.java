@@ -1,7 +1,7 @@
 package com.igame.service.impl;
 
 import com.igame.dao.UserDao;
-import com.igame.entity.User;
+import com.igame.pojo.User;
 import com.igame.service.UserService;
 import com.igame.utils.MsgUtils;
 import com.igame.utils.SecurityUtil;
@@ -20,7 +20,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
-
 
     @Override
     public MsgUtils login(User user) {
