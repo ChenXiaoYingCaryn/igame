@@ -23,6 +23,10 @@ public class MsgUtils implements Serializable{
         return new MsgUtils(code,msg,data);
     }
 
+    public static MsgUtils build(int code , String msg) {
+        return new MsgUtils(code,msg);
+    }
+
     public static MsgUtils success(){
         MsgUtils result = new MsgUtils();
         result.setCode(100);
@@ -37,12 +41,19 @@ public class MsgUtils implements Serializable{
         return result;
     }
 
+
+
     public MsgUtils add(String key, Object value){
         this.getData().put(key, value);
         return this;
     }
 
     public MsgUtils() {
+    }
+
+    public MsgUtils(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
     }
 
     public MsgUtils(int code, String msg, Map<String, Object> data) {
