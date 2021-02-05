@@ -17,6 +17,11 @@ public class UserTest {
         UserDao userDao;
 
         @Test
+        void loginTest(){
+                userDao.findUserByIdAndPassword(new User("123","123"));
+        }
+
+        @Test
         public void insertTest(){
                 userDao.addUser(new User("123","123","chen","女","739130811@qq.com","abc"));
         }

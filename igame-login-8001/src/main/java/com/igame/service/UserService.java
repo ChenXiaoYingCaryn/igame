@@ -11,6 +11,13 @@ import com.igame.utils.MsgUtils;
 public interface UserService {
 
     /**
+     * 用户登录
+     * @param user
+     * @return
+     */
+    MsgUtils login(User user);
+
+    /**
      * 用户注册方法
      * @param user
      * @return

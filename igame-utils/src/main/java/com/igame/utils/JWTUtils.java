@@ -42,9 +42,4 @@ public class JWTUtils {
         return JWT.require(Algorithm.HMAC256(SIGN)).build().verify(token);
     }
 
-    //获取token信息的方法
-//    public static DecodedJWT getTokenInfo(String token){
-//        DecodedJWT verify = JWT.require(Algorithm.HMAC256(SIGN)).build().verify(token);
-//        return verify;
-//    }
 }

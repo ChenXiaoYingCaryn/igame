@@ -16,6 +16,11 @@ public class User {
     private int is_deleted = 0;
     private Date create_time;
 
+    public User(String user_id, String user_pwd) {
+        this.user_id = user_id;
+        this.user_pwd = user_pwd;
+    }
+
     public User(String user_id, String user_pwd, String user_name, String user_sex, String user_email, String user_image) {
         this.user_id = user_id;
         this.user_pwd = user_pwd;
