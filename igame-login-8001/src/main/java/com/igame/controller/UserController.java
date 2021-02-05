@@ -1,6 +1,6 @@
 package com.igame.controller;
 
-import com.igame.entity.User;
+import com.igame.pojo.User;
 import com.igame.service.UserService;
 import com.igame.utils.MsgUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @create 2021-02-05 下午 9:58
  */
 @RestController
+@RequestMapping("/register")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/register/creat", method = RequestMethod.POST)
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public MsgUtils createuser(User user) {
         return userService.createUser(user);

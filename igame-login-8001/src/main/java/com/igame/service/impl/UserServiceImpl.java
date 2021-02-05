@@ -21,7 +21,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
-
     @Override
     public MsgUtils createUser(User user) {
         try{
