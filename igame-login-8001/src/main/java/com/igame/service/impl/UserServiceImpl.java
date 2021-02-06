@@ -5,11 +5,9 @@ import com.igame.pojo.User;
 import com.igame.service.UserService;
 import com.igame.utils.MsgUtils;
 import com.igame.utils.JSONUtils;
-import io.micrometer.core.instrument.util.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 
 /**
  * @author xiaoying
@@ -28,7 +26,7 @@ public class UserServiceImpl implements UserService {
         if(user == null){
             return MsgUtils.build(405,"用户名或密码错误");
         }
-        return MsgUtils.build(200, JSONUtils.objectToJson(user.getUser_id()));
+        return MsgUtils.build(200, JSONUtils.objectToJson(user));
     }
 
     @Override
@@ -42,4 +40,5 @@ public class UserServiceImpl implements UserService {
             return MsgUtils.build(100,e.getMessage());
         }
     }
+
 }

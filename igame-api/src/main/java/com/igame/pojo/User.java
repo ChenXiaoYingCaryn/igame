@@ -25,5 +25,4 @@ public class User implements Serializable {
     private String user_image = "";
     private int is_deleted = 0;
     private Date create_time;
-
 }
