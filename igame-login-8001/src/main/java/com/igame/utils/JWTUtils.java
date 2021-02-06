@@ -40,7 +40,6 @@ public class JWTUtils {
 
 
 
-
     //验证token 合法性
     public static DecodedJWT verify(String token){
         return JWT.require(Algorithm.HMAC256(SIGN)).build().verify(token);
