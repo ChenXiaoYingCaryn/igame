@@ -5,11 +5,15 @@ import com.igame.pojo.User;
 import com.igame.service.UserService;
 import com.igame.utils.MsgUtils;
 import com.igame.utils.JSONUtils;
-import io.micrometer.core.instrument.util.JsonUtils;
+import com.igame.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.igame.utils.JWTUtils.getToken;
 
 /**
  * @author xiaoying
@@ -28,7 +32,11 @@ public class UserServiceImpl implements UserService {
         if(user == null){
             return MsgUtils.build(405,"用户名或密码错误");
         }
-        return MsgUtils.build(200, JSONUtils.objectToJson(user.getUser_id()));
+        //生成token
+        Map<String, String> map = new HashMap<String, String>();
+        map.put(user.getUser_id(),user.getUser_pwd());
+        String token = getToken(map);
+        return MsgUtils.build(200,token,JSONUtils.objectToJson(user));
     }
 
     @Override

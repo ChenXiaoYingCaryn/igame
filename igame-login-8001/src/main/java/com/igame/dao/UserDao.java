@@ -23,7 +23,7 @@ public interface UserDao {
      * @return
      */
     @Select("SELECT * FROM tb_user WHERE user_id = #{user_id} AND user_pwd = #{user_pwd}")
-    User findUserByIdAndPassword(String user_id, String user_pwd);
+    User findUserByIdAndPassword(@Param("user_id")String user_id,@Param("user_pwd") String user_pwd);
 
     /**
      * 用户注册
