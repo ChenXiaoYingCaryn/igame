@@ -17,9 +17,10 @@ public class MsgUtils implements Serializable{
     private String msg;
 
     //用户要返回给浏览器的数据
-    private Map<String,Object> data = new HashMap<String, Object>();
+//    private Map<String,Object> data = new HashMap<String, Object>();
+    private Object data;
 
-    public static MsgUtils build(int code , String msg , Map data){
+    public static MsgUtils build(int code , String msg , Object data){
         return new MsgUtils(code,msg,data);
     }
 
@@ -43,11 +44,6 @@ public class MsgUtils implements Serializable{
 
 
 
-    public MsgUtils add(String key, Object value){
-        this.getData().put(key, value);
-        return this;
-    }
-
     public MsgUtils() {
     }
 
@@ -56,7 +52,7 @@ public class MsgUtils implements Serializable{
         this.msg = msg;
     }
 
-    public MsgUtils(int code, String msg, Map<String, Object> data) {
+    public MsgUtils(int code, String msg, Object data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
@@ -78,11 +74,11 @@ public class MsgUtils implements Serializable{
         this.msg = msg;
     }
 
-    public Map<String, Object> getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(Map<String, Object> data) {
+    public void setData(Object data) {
         this.data = data;
     }
 }
