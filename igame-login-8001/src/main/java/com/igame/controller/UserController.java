@@ -19,8 +19,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/login")
-    public  MsgUtils login(User user){
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @ResponseBody
+    public  MsgUtils login(@RequestBody User user){
+        System.out.println(user + "8001");
         //登录前初步校验
         if(StringUtils.isBlank(user.getUser_id()) || StringUtils.isBlank(user.getUser_id())) {
             return MsgUtils.build(400, "账号或密码不能为空");
@@ -30,7 +32,7 @@ public class UserController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
-    public MsgUtils createuser(User user) {
+    public MsgUtils createuser(@RequestBody User user) {
         return userService.createUser(user);
     }
 

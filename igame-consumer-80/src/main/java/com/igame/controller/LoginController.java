@@ -22,4 +22,10 @@ public class LoginController {
         return this.loginService.create(user);
     }
 
+    @RequestMapping("/register/login")
+    public MsgUtils login(User user){
+        System.out.println(user + "80");
+        return this.loginService.login(user);
+    }
+
 }
