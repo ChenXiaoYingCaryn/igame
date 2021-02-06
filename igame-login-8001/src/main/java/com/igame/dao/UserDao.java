@@ -1,6 +1,7 @@
 package com.igame.dao;
 
-import com.igame.entity.User;
+
+import com.igame.pojo.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -17,11 +18,12 @@ public interface UserDao {
 
     /**
      * 用户登录
-     * @param user
+     * @param user_id
+     * @param user_pwd
      * @return
      */
     @Select("SELECT * FROM tb_user WHERE user_id = #{user_id} AND user_pwd = #{user_pwd}")
-    void findUserByIdAndPassword(@Param("user") User user);
+    User findUserByIdAndPassword(String user_id, String user_pwd);
 
     /**
      * 用户注册
@@ -31,6 +33,5 @@ public interface UserDao {
             " VALUES (#{user.user_id},#{user.user_pwd},#{user.user_name},#{user.user_sex},#{user.user_email}," +
             "#{user.user_image})")
     void addUser(@Param("user") User user);
-
 
 }

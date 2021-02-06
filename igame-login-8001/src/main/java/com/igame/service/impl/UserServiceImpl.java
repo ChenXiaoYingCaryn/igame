@@ -4,12 +4,12 @@ import com.igame.dao.UserDao;
 import com.igame.pojo.User;
 import com.igame.service.UserService;
 import com.igame.utils.MsgUtils;
-import com.igame.utils.SecurityUtil;
+import com.igame.utils.JSONUtils;
+import io.micrometer.core.instrument.util.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.UUID;
 
 /**
  * @author xiaoying
@@ -23,22 +23,20 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public MsgUtils login(User user) {
-
-
-
-        return null;
+        //根据用户id和密码获取用户信息
+        user = userDao.findUserByIdAndPassword(user.getUser_id() , user.getUser_pwd());
+        if(user == null){
+            return MsgUtils.build(405,"用户名或密码错误");
+        }
+        return MsgUtils.build(200, JSONUtils.objectToJson(user.getUser_id()));
     }
 
     @Override
     public MsgUtils createUser(User user) {
         try{
-            //为注册用户填充用户创建时间与更新时间
-            user.setCreate_time(new Date());
-            //为用户输入密码进行md5加密
-            user.setUser_pwd(SecurityUtil.md5(user.getUser_pwd()));
             //调用dao添加用户
             userDao.addUser(user);
-            return MsgUtils.build(200, "尊重的["+user.getUser_name()+"],您的账号已成功注册");
+            return MsgUtils.build(200, user.getUser_name()+",您的账号已成功注册");
         }catch(Exception e){
             e.printStackTrace();
             return MsgUtils.build(100,e.getMessage());

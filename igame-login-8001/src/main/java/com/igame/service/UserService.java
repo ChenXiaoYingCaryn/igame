@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
  * @author xiaoying
  * @create 2021-02-05 下午 9:59
  */
-@Repository
 public interface UserService {
 
     /**

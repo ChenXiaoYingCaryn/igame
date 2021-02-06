@@ -10,7 +10,7 @@ import java.util.Map;
  * @create 2020-08-17 下午 2:24
  */
 public class MsgUtils implements Serializable{
-    //状态码 100-成功 200-失败
+    //状态码 200-成功 100-失败
     private int code;
 
     //提示信息
@@ -29,14 +29,14 @@ public class MsgUtils implements Serializable{
 
     public static MsgUtils success(){
         MsgUtils result = new MsgUtils();
-        result.setCode(100);
+        result.setCode(200);
         result.setMsg("处理成功！");
         return result;
     }
 
     public static MsgUtils fail(){
         MsgUtils result = new MsgUtils();
-        result.setCode(200);
+        result.setCode(100);
         result.setMsg("处理失败！");
         return result;
     }

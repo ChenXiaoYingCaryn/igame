@@ -46,6 +46,14 @@
                 <scope>import</scope>
             </dependency>
 
+            <!--单元测试-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>4.3.18.RELEASE</version>
+                <scope>test</scope>
+            </dependency>
+
             <!--SpringBoot-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>

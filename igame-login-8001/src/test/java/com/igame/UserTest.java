@@ -1,22 +1,21 @@
-package com.igame.test;
+package com.igame;
 
 import com.igame.dao.UserDao;
-import com.igame.loginServer_8001;
 import com.igame.pojo.User;
 import com.igame.service.UserService;
-
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 
 /**
  * @author xiaoying
  * @create 2021-02-05 上午 12:40
  */
-//@SpringBootTest
+@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-//@SpringBootTest(classes = loginServer_8001.class)
 public class UserTest {
         @Autowired
         UserDao userDao;

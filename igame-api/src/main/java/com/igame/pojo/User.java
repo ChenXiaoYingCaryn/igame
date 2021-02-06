@@ -1,14 +1,13 @@
 package com.igame.pojo;
 
-import lombok.Data;
-
+import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author ChanV
- * @create 2021-02-05-12:37
+ * @author xiaoying
+ * @create 2021-02-04 下午 10:29
  */
-public class User {
+public class User implements Serializable {
     private String user_id = "";
     private String user_pwd = "";
     private String user_name = "";
@@ -17,6 +16,11 @@ public class User {
     private String user_image = "";
     private int is_deleted = 0;
     private Date create_time;
+
+    public User(String user_id, String user_pwd) {
+        this.user_id = user_id;
+        this.user_pwd = user_pwd;
+    }
 
     public User(String user_id, String user_pwd, String user_name, String user_sex, String user_email, String user_image) {
         this.user_id = user_id;
