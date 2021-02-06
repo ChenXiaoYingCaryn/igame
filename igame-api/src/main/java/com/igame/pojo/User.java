@@ -1,5 +1,7 @@
 package com.igame.pojo;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,7 +9,8 @@ import java.util.Date;
  * @author xiaoying
  * @create 2021-02-04 下午 10:29
  */
-public class User implements Serializable {
+@Component
+public class User {
     private String user_id = "";
     private String user_pwd = "";
     private String user_name = "";

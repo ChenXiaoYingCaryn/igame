@@ -4,11 +4,9 @@ package com.igame.controller;
 import com.igame.pojo.User;
 import com.igame.service.UserService;
 import com.igame.utils.MsgUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author xiaoying
@@ -20,6 +18,15 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @PostMapping("/login")
+    public  MsgUtils login(User user){
+        //登录前初步校验
+        if(StringUtils.isBlank(user.getUser_id()) || StringUtils.isBlank(user.getUser_id())) {
+            return MsgUtils.build(400, "账号或密码不能为空");
+        }
+        return userService.login(user);
+    }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
