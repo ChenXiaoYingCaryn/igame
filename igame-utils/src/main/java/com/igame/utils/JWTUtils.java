@@ -45,4 +45,10 @@ public class JWTUtils {
         return JWT.require(Algorithm.HMAC256(SIGN)).build().verify(token);
     }
 
+    //验证token合法性，并获取token中的信息
+    public static String getTokenInfo(String token){
+        DecodedJWT decodedJWT = JWT.require(Algorithm.HMAC256(SIGN)).build().verify(token);
+        return Base64Utils.decode(decodedJWT.getPayload());
+    }
+
 }

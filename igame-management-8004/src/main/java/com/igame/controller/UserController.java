@@ -21,23 +21,23 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public MsgUtils add(@RequestBody User user){
-        return this.userService.addUser(user);
+    public MsgUtils addUser(@RequestBody User user, String token){
+        return this.userService.addUser(user, token);
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.PUT)
-    public MsgUtils delete(@RequestBody String user_id){
-        return this.userService.deleteUser(user_id);
+    public MsgUtils deleteUser(@RequestBody String user_id, String token){
+        return this.userService.deleteUser(user_id, token);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public MsgUtils update(@RequestBody User user){
-        return this.userService.updateUser(user);
+    public MsgUtils updateUser(@RequestBody User user, String token){
+        return this.userService.updateUser(user, token);
     }
 
     @RequestMapping(value = "/query", method = RequestMethod.GET)
-    public MsgUtils query(@RequestBody Integer curPage, @RequestBody Integer pageSize){
-        return this.userService.queryUser(curPage, pageSize);
+    public MsgUtils queryUser(@RequestBody Integer curPage, @RequestBody Integer pageSize, String token){
+        return this.userService.queryUser(curPage, pageSize, token);
     }
 
 }

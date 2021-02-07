@@ -3,6 +3,7 @@ package com.igame.service.impl;
 import com.igame.dao.UserDao;
 import com.igame.pojo.User;
 import com.igame.service.UserService;
+import com.igame.utils.JWTUtils;
 import com.igame.utils.MsgUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,9 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public MsgUtils addUser(User user) {
+    public MsgUtils addUser(User user, String token) {
         try {
+            JWTUtils.verify(token);
             this.userDao.addUser(user);
             return MsgUtils.build(200, user.getUser_name() + "用户增加成功");
         }catch (Exception e){
@@ -31,8 +33,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public MsgUtils deleteUser(String user_id) {
+    public MsgUtils deleteUser(String user_id, String token) {
         try {
+            JWTUtils.verify(token);
             this.userDao.deleteUser(user_id);
             return MsgUtils.build(200, user_id + "用户删除成功");
         }catch (Exception e){
@@ -41,8 +44,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public MsgUtils updateUser(User user) {
+    public MsgUtils updateUser(User user, String token) {
         try {
+            JWTUtils.verify(token);
             this.userDao.updateUser(user);
             return MsgUtils.build(200, user.getUser_id() + "用户更新成功");
         }catch (Exception e){
@@ -51,8 +55,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public MsgUtils queryUser(Integer curPage, Integer pageSize) {
+    public MsgUtils queryUser(Integer curPage, Integer pageSize, String token) {
         try {
+            JWTUtils.verify(token);
             List<User> users = this.userDao.queryUser(curPage * pageSize, pageSize);
             return MsgUtils.build(200, "查询成功", users);
         }catch (Exception e){

@@ -16,7 +16,7 @@ public interface UserService {
      * @param user
      * @return
      */
-    MsgUtils addUser(User user);
+    MsgUtils addUser(User user, String token);
 
     /**
      * 删除用户
@@ -24,7 +24,7 @@ public interface UserService {
      * @param user_id
      * @return
      */
-    MsgUtils deleteUser(String user_id);
+    MsgUtils deleteUser(String user_id, String token);
 
     /**
      * 更新用户
@@ -32,7 +32,7 @@ public interface UserService {
      * @param user
      * @return
      */
-    MsgUtils updateUser(User user);
+    MsgUtils updateUser(User user, String token);
 
     /**
      * 分页查询用户
@@ -41,5 +41,5 @@ public interface UserService {
      * @param pageSize
      * @return
      */
-    MsgUtils queryUser(Integer curPage, Integer pageSize);
+    MsgUtils queryUser(Integer curPage, Integer pageSize, String token);
 }

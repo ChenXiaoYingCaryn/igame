@@ -32,7 +32,8 @@ public class UserServiceImpl implements UserService {
         }
         //生成token
         Map<String, String> map = new HashMap<String, String>();
-        map.put(user.getUser_id(),user.getUser_name());
+        map.put("user_id", user.getUser_id());
+        map.put("user_name", user.getUser_name());
         String token = JWTUtils.getToken(map);
         return MsgUtils.build(200,token,JSONUtils.objectToJson(user));
     }
