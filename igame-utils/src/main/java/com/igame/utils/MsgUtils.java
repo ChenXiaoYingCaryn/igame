@@ -10,42 +10,49 @@ import java.util.Map;
  * @create 2020-08-17 下午 2:24
  */
 public class MsgUtils implements Serializable{
-    //状态码 100-成功 200-失败
+    //状态码 200-成功 100-失败
     private int code;
 
     //提示信息
     private String msg;
 
     //用户要返回给浏览器的数据
-    private Map<String,Object> data = new HashMap<String, Object>();
+//    private Map<String,Object> data = new HashMap<String, Object>();
+    private Object data;
 
-    public static MsgUtils build(int code , String msg , Map data){
+    public static MsgUtils build(int code , String msg , Object data){
         return new MsgUtils(code,msg,data);
+    }
+
+    public static MsgUtils build(int code , String msg) {
+        return new MsgUtils(code,msg);
     }
 
     public static MsgUtils success(){
         MsgUtils result = new MsgUtils();
-        result.setCode(100);
+        result.setCode(200);
         result.setMsg("处理成功！");
         return result;
     }
 
     public static MsgUtils fail(){
         MsgUtils result = new MsgUtils();
-        result.setCode(200);
+        result.setCode(100);
         result.setMsg("处理失败！");
         return result;
     }
 
-    public MsgUtils add(String key, Object value){
-        this.getData().put(key, value);
-        return this;
-    }
+
 
     public MsgUtils() {
     }
 
-    public MsgUtils(int code, String msg, Map<String, Object> data) {
+    public MsgUtils(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
+    public MsgUtils(int code, String msg, Object data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
@@ -67,11 +74,11 @@ public class MsgUtils implements Serializable{
         this.msg = msg;
     }
 
-    public Map<String, Object> getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(Map<String, Object> data) {
+    public void setData(Object data) {
         this.data = data;
     }
 }

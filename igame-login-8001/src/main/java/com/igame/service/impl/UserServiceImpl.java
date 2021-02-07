@@ -3,10 +3,14 @@ package com.igame.service.impl;
 import com.igame.dao.UserDao;
 import com.igame.pojo.User;
 import com.igame.service.UserService;
+import com.igame.utils.JWTUtils;
 import com.igame.utils.MsgUtils;
 import com.igame.utils.JSONUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -26,7 +30,11 @@ public class UserServiceImpl implements UserService {
         if(user == null){
             return MsgUtils.build(405,"用户名或密码错误");
         }
-        return MsgUtils.build(200, JSONUtils.objectToJson(user));
+        //生成token
+        Map<String, String> map = new HashMap<String, String>();
+        map.put(user.getUser_id(),user.getUser_name());
+        String token = JWTUtils.getToken(map);
+        return MsgUtils.build(200,token,JSONUtils.objectToJson(user));
     }
 
     @Override
