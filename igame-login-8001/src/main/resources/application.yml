@@ -14,7 +14,7 @@ eureka:
 spring:
   datasource:
     username: root
-    password: '123456'
+    password: 'haizhihairuiyijiaqin'
     url: jdbc:mysql://106.53.135.86:3306/igame?characterEncoding=UTF-8&useSSL=true&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
