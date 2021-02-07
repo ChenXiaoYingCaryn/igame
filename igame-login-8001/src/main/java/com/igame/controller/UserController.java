@@ -22,7 +22,6 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public  MsgUtils login(@RequestBody User user){
-        System.out.println(user + "8001");
         //登录前初步校验
         if(StringUtils.isBlank(user.getUser_id()) || StringUtils.isBlank(user.getUser_id())) {
             return MsgUtils.build(400, "账号或密码不能为空");

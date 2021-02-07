@@ -31,6 +31,7 @@
         <module>igame-dynamic-8002</module>
         <module>igame-fileManagement-8003</module>
         <module>igame-api</module>
+        <module>igame-management-8004</module>
     </modules>
 
     <packaging>pom</packaging>
