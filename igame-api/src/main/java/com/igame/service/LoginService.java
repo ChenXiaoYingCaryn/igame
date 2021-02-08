@@ -8,6 +8,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 /**
@@ -22,6 +24,6 @@ public interface LoginService {
     public MsgUtils create(@Param("user") User user);
 
     @PostMapping("/register/login")
-    public MsgUtils login(@Param("user")User user);
+    public MsgUtils login(@Param("user") User user);
 
 }

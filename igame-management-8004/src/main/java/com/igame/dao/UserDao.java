@@ -31,7 +31,7 @@ public interface UserDao {
      * 删除用户
      * @param user_id
      */
-    @Update("UPDATE tb_user SET is_delete = 1 WHERE user_id = #{user_id}")
+    @Update("UPDATE tb_user SET is_deleted = 1 WHERE user_id = #{user_id}")
     void deleteUser(@Param("user_id") String user_id);
 
     /**
