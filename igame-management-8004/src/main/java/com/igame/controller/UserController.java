@@ -18,7 +18,7 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public MsgUtils addUser(@RequestParam User user, @RequestParam String token){
+    public MsgUtils addUser(@RequestBody User user, @RequestParam String token){
         return this.userService.addUser(user, token);
     }
 
@@ -28,7 +28,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public MsgUtils updateUser(@RequestParam User user, @RequestParam String token){
+    public MsgUtils updateUser(@RequestBody User user, @RequestParam String token){
         return this.userService.updateUser(user, token);
     }
 

@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
         try {
             JWTUtils.verify(token);
             this.userDao.updateUser(user);
-            return MsgUtils.build(200, user.getUser_id() + "用户更新成功");
+            return MsgUtils.build(200, user.getUser_name() + "用户更新成功");
         }catch (Exception e){
             return MsgUtils.build(100, e.getMessage());
         }
