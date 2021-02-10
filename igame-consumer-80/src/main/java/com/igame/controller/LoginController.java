@@ -7,6 +7,7 @@ import com.igame.utils.MsgUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author ChanV
@@ -18,14 +19,19 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping("/register/create")
+    @RequestMapping(value = "/register/create")
     public MsgUtils create(User user){
         return this.loginService.create(user);
     }
 
-    @RequestMapping("/register/login")
+    @RequestMapping(value = "/register/login")
     public MsgUtils login(User user){
         return this.loginService.login(user);
+    }
+
+    @RequestMapping(value = "/register/updateUserImage")
+    private MsgUtils updateUserImage(MultipartFile user_image, String user_id){
+        return this.loginService.updateUserImage(user_image, user_id);
     }
 
 }

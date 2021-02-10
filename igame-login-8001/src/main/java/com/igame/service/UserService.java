@@ -3,6 +3,7 @@ package com.igame.service;
 import com.igame.pojo.User;
 import com.igame.utils.MsgUtils;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 用户业务
@@ -24,5 +25,12 @@ public interface UserService {
      * @return
      */
     MsgUtils createUser(User user);
+
+    /**
+     * 更新用户头像
+     * @param user_image
+     * @return
+     */
+    MsgUtils updateUserImage(MultipartFile user_image, String user_id);
 
 }

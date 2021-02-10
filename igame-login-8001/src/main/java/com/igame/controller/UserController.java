@@ -7,6 +7,7 @@ import com.igame.utils.MsgUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author xiaoying
@@ -35,6 +36,11 @@ public class UserController {
         return userService.createUser(user);
     }
 
+    @RequestMapping(value = "/updateUserImage", method = RequestMethod.POST)
+    @ResponseBody
+    public MsgUtils updateUserImage(@RequestBody MultipartFile user_image, @RequestParam String user_id){
+        return this.userService.updateUserImage(user_image, user_id);
+    }
 
 
 

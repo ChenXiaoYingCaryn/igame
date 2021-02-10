@@ -9,3 +9,7 @@ eureka:
     register-with-eureka: false #不向Eureka注册自己
     service-url:
       defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 30000

@@ -6,8 +6,10 @@ import com.igame.service.UserService;
 import com.igame.utils.JWTUtils;
 import com.igame.utils.MsgUtils;
 import com.igame.utils.JSONUtils;
+import com.igame.utils.OSSUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -47,6 +49,22 @@ public class UserServiceImpl implements UserService {
         }catch(Exception e){
             e.printStackTrace();
             return MsgUtils.build(100,e.getMessage());
+        }
+    }
+
+    @Override
+    public MsgUtils updateUserImage(MultipartFile user_image, String user_id) {
+
+        try {
+            OSSUtil ossUtil = new OSSUtil();
+            String imgName = user_image.getOriginalFilename();
+            System.out.println(imgName);
+            String imgUrl = ossUtil.uploadImgFile(user_image);
+            this.userDao.updateUserImage(imgUrl, user_id);
+            return MsgUtils.build(200, "头像更新成功");
+        }catch (Exception e){
+            e.printStackTrace();
+            return MsgUtils.build(100, e.getMessage());
         }
     }
 

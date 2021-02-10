@@ -36,4 +36,11 @@ public interface UserDao {
             "#{user.user_image})")
     void addUser(@Param("user") User user);
 
+    /**
+     * 更新用户头像
+     * @param user_image
+     */
+    @Insert("UPDATE tb_user SET user_image = #{user_image} WHERE user_id = #{user_id}")
+    void updateUserImage(@Param("user_image") String user_image, @Param("user_id") String user_id);
+
 }

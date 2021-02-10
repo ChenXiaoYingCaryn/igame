@@ -57,7 +57,7 @@ public class OSSUtil {
         String folder = contentType(fileName.substring(fileName.lastIndexOf(".") + 1));
         String objectName = folder + UUID.randomUUID() + fileName;
         ObjectMetadata metadata = new ObjectMetadata();
-        metadata.setContentType("image/jpg");
+        metadata.setContentType("video/mp4");
 
         try {
             ossClient = new OSSClientBuilder().build(config.getEndpoint(), config.getAccessKeyId(), config.getAccessKeySecret());
