@@ -27,6 +27,6 @@ public interface LoginService {
     public MsgUtils login(@Param("user") User user);
 
     @PostMapping(value = "/register/updateUserImage", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE},consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public MsgUtils updateUserImage(@RequestPart(value = "user_image") MultipartFile user_image, @RequestParam(value = "user_id") String user_id);
+    public MsgUtils updateUserImage(@RequestPart(value = "user_image") MultipartFile user_image, @RequestParam(value = "user_id") String user_id, @RequestParam(value = "token") String token);
 
 }

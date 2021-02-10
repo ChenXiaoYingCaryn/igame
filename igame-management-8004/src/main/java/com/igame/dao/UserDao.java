@@ -40,7 +40,7 @@ public interface UserDao {
      */
     @Update("UPDATE tb_user SET user_pwd = #{user.user_pwd}, user_name = #{user.user_name}," +
                                 "user_sex = #{user.user_sex}, user_email = #{user.user_email} " +
-                                "where user_id = #{user.user_id}")
+                                "WHERE user_id = #{user.user_id}")
     void updateUser(@Param("user") User user);
 
     /**

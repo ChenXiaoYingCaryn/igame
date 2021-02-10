@@ -38,8 +38,8 @@ public class UserController {
 
     @RequestMapping(value = "/updateUserImage", method = RequestMethod.POST)
     @ResponseBody
-    public MsgUtils updateUserImage(@RequestBody MultipartFile user_image, @RequestParam String user_id){
-        return this.userService.updateUserImage(user_image, user_id);
+    public MsgUtils updateUserImage(@RequestBody MultipartFile user_image, @RequestParam String user_id, @RequestParam String token){
+        return this.userService.updateUserImage(user_image, user_id, token);
     }
 
 

@@ -31,6 +31,6 @@ public interface UserService {
      * @param user_image
      * @return
      */
-    MsgUtils updateUserImage(MultipartFile user_image, String user_id);
+    MsgUtils updateUserImage(MultipartFile user_image, String user_id, String token);
 
 }

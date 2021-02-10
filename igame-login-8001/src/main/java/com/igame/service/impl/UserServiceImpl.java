@@ -53,12 +53,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public MsgUtils updateUserImage(MultipartFile user_image, String user_id) {
+    public MsgUtils updateUserImage(MultipartFile user_image, String user_id, String token) {
 
         try {
+            JWTUtils.verify(token);
             OSSUtil ossUtil = new OSSUtil();
             String imgName = user_image.getOriginalFilename();
-            System.out.println(imgName);
             String imgUrl = ossUtil.uploadImgFile(user_image);
             this.userDao.updateUserImage(imgUrl, user_id);
             return MsgUtils.build(200, "头像更新成功");
