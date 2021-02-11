@@ -4,6 +4,7 @@ import com.igame.pojo.Slideshow;
 import com.igame.pojo.User;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 
@@ -16,14 +17,13 @@ import java.util.List;
 public interface SlideshowDao {
 
     /**
-     *
+     * 增加轮播图
      * @param image_id
      * @param image_introduction
-     * @param image_url
      */
-    @Insert("INSERT INTO tb_slideshow (image_id, image_introduction, image_url)" +
-            " VALUES (#{image_id}, #{image_introduction}, #{image_url})")
-    void addSlideshow(@Param("image_id")String image_id, @Param("image_introduction") String image_introduction, @Param("image_url") String image_url);
+    @Insert("INSERT INTO tb_slideshow (image_id, image_introduction)" +
+            " VALUES (#{image_id}, #{image_introduction})")
+    void addSlideshow(@Param("image_id")String image_id, @Param("image_introduction") String image_introduction);
 
     /**
      * 删除轮播图
@@ -34,11 +34,12 @@ public interface SlideshowDao {
 
     /**
      * 更新轮播图
-     * @param slideshow
+     * @param image_id
+     * @param image_introduction
      */
-    @Update("UPDATE tb_slideshow SET image_introduction = #{slideshow.image_introduction}, image_url = #{slideshow.image_url}" +
+    @Update("UPDATE tb_slideshow SET image_introduction = #{image_introduction}" +
                                     "WHERE image_id = #{slideshow.image_id}")
-    void updateSlideshow(@Param("slideshow") Slideshow slideshow);
+    void updateSlideshow(@Param("image_id") String image_id, @Param("image_introduction") String image_introduction);
 
     /**
      * 分页查询轮播图
@@ -49,4 +50,13 @@ public interface SlideshowDao {
     @Select("SELECT * FROM tb_slideshow LIMIT #{curPage}, #{pageSize}")
     List<Slideshow> querySlideshow(@Param("curPage") Integer curPage, @Param("pageSize") Integer pageSize);
 
+    /**
+     * 更新轮播图图片
+     * @param image_id
+     * @param image_url
+     * @param token
+     */
+    @Update("UPDATE tb_slideshow SET image_url = {image_url}" +
+                                "WHERE image_id = #{image_id}")
+    void updateSlideshowImage(@Param("image_id") String image_id, @Param("image_url") String image_url, @Param("token") String token);
 }
