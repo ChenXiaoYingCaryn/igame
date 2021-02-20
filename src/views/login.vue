@@ -43,15 +43,12 @@ export default {
 </script>
 
 <style scoped>
-* {
-    padding: 0px;
-    margin: 0px;
-}
-
 .container {
-  height: 100%;
-  width: 100%;
+  height: calc(100vh);
+  width: calc(100vw);
+  /* 获取屏幕宽度和高度 */
   position: relative;
+  overflow: hidden;
   background: url("../../img/gaming2.jpg") center center / cover no-repeat fixed;
 }
 
