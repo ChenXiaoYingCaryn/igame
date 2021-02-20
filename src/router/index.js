@@ -3,8 +3,8 @@ import VueRouter from 'vue-router'
 
 const home = () => import('../views/home.vue')
 const login = () => import('../views/login.vue')
-const about = () => import('../views/about.vue')
-const mark = () => import('../views/mark.vue')
+const test = () => import('../views/test.vue')
+const marking = () => import('../views/marking.vue')
 
 Vue.use(VueRouter)
 
@@ -17,9 +17,9 @@ export default new VueRouter({
       component: login
     },
     {
-      path: '/about',
-      name: 'about',
-      component: about
+      path: '/test',
+      name: 'test',
+      component: test
     },
     {
       path: '/login',
@@ -32,9 +32,9 @@ export default new VueRouter({
       component: home
     },
     {
-      path: '/mark',
-      name: 'mark',
-      component: mark
+      path: '/marking',
+      name: 'marking',
+      component: marking
     }
   ]
 })
